@@ -9,16 +9,10 @@ app = Flask(__name__)
 def base():
     map = folium.Map(
         location=[25.030797164609954, 121.55874457225863],
-        zoom_start=12,
-        popup='Skytree'
+        zoom_start=12
+        
     )
 
-    folium.Marker(
-        location=[25.030797164609954, 121.55874457225863],
-        
-        tooltip="好玩的嘗試XDD"
-
-    ).add_to(map)
 
     return map._repr_html_()
 
