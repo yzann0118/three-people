@@ -1,2 +1,4 @@
 Flask
 gunicorn
+folium
+geopandas
