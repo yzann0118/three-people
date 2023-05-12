@@ -25,7 +25,7 @@
             <meta name="viewport" content="width=device-width,
                 initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
             <style>
-                #map_a2a331ad64cbef0fa66b68b46b7f907b {
+                #map_dd6d51cd4772b84f8958290ee689823b {
                     position: relative;
                     width: 100.0%;
                     height: 100.0%;
@@ -39,31 +39,49 @@
 <body>
     
     
-    <div style ="position : fixed; left:50px;top:30 px;width:800px;height:100px;background-color:white;z-index:500">
-    <br>  </br>
-    
-    <form>
-    <select name="YourLocation">
-    <option value="Taipei">台北</option>
-    <option value="Taoyuan">桃園</option>
-    <option value="Hsinchu">新竹</option>
-    <option value="Miaoli">苗栗</option>
-        </select>
-    </form>
-        <button style="font-size:20px;">  確定 </button>
+    <html>
 
-    </div>
+    <head>
+        <title>三人組道安平台</title>
+    </head>
+    <body>
+        <div style ="position : fixed; left:1200px;top:30 px;width:400px;height:2000px;background-color:white;z-index:500">
+        
+        <form>
+            
+            <br>區域選擇  <select name="Location">
+            <option value="Taipei">台北</option>
+            <option value="Taoyuan">桃園</option>
+            <option value="Hsinchu">新竹</option>
+            <option value="Miaoli">苗栗</option>
+            </select>
+        <br></br>
+        </form>
+        <button style="font-size:20px;" type="summit">  確定 </button>
+        <input type="submit" value="確定" />
+        <br></br>
+
+        <form action="" method='post' style="">
+            
+            <input type=file name=file>
+            <br>請輸入搜尋位置<input type=summit value="位置" name="搜尋位置按鈕">
+            
+        </form>
+        </div>
+
+    </body>
+    </html>
    
     
     
-            <div class="folium-map" id="map_a2a331ad64cbef0fa66b68b46b7f907b" ></div>
+            <div class="folium-map" id="map_dd6d51cd4772b84f8958290ee689823b" ></div>
         
 </body>
 <script>
     
     
-            var map_a2a331ad64cbef0fa66b68b46b7f907b = L.map(
-                "map_a2a331ad64cbef0fa66b68b46b7f907b",
+            var map_dd6d51cd4772b84f8958290ee689823b = L.map(
+                "map_dd6d51cd4772b84f8958290ee689823b",
                 {
                     center: [25.030797164609954, 121.55874457225863],
                     crs: L.CRS.EPSG3857,
@@ -77,10 +95,10 @@
 
         
     
-            var tile_layer_804031575a02628b670a62459cb79a2d = L.tileLayer(
+            var tile_layer_ac9c40c30741a7415b064821d167f3a8 = L.tileLayer(
                 "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
                 {"attribution": "Data by \u0026copy; \u003ca target=\"_blank\" href=\"http://openstreetmap.org\"\u003eOpenStreetMap\u003c/a\u003e, under \u003ca target=\"_blank\" href=\"http://www.openstreetmap.org/copyright\"\u003eODbL\u003c/a\u003e.", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
-            ).addTo(map_a2a331ad64cbef0fa66b68b46b7f907b);
+            ).addTo(map_dd6d51cd4772b84f8958290ee689823b);
         
 </script>
 </html>
