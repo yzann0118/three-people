@@ -1,9 +1,7 @@
 from flask import Flask,request, render_template
-
 import folium
 
 app = Flask(__name__)
-
 
 @app.route('/', methods=['POST', 'GET'])
 
@@ -61,8 +59,9 @@ def base():
  
     return map._repr_html_()
 
-
-       
+@app.route('/page1')
+def page():
+    return render_template('111年臺北市無號誌交叉口原始點資料_縮放人數_new.html')
 
 
 if __name__ == '__main__':
