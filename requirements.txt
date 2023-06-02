@@ -4,4 +4,4 @@ folium
 geopandas
 ultralytics
 torch== 2.0.1
-torchvision==0.9.1+cpu
+torchvision==0.9.1
