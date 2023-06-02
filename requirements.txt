@@ -2,7 +2,8 @@ Flask
 gunicorn
 folium
 geopandas
-ultralytics
-torch>= 1.0.2
-torchvision>=0.2.2
-torchaudio >=2.0.1
+#ultralytics
+#torch>= 1.0.2
+#torchvision>=0.2.2
+#torchaudio >=2.0.1
+NanoDet
