@@ -3,6 +3,6 @@ gunicorn
 folium
 geopandas
 ultralytics
-pytorch== 1.7.0
+pytorch== 1.0.2
 torchvision==0.8.0
 torchaudio ==0.7.0
