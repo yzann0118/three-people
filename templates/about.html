@@ -2,6 +2,23 @@
 <html lang="en">
 
 <head>
+    <style>
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+        }
+
+        section {
+            flex: 1;
+        }
+    </style>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
@@ -25,7 +42,7 @@
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item active"><a class="nav-link" href="home">首頁</a></li>
                     <li class="nav-item"><a class="nav-link" href="about">關於我們</a></li>
-                    <li class="nav-item"><a class="nav-link" href="service">服務</a></li>
+                    <li class="nav-item"><a class="nav-link" href="service">業務實績</a></li>
                     <li class="nav-item"><a class="nav-link" href="contact">聯繫方式</a></li>
                 </ul>
             </div>
@@ -33,8 +50,7 @@
     </nav>
     <!-- Page Content-->
     <div>
-        <img src="{{ url_for('static', filename='road.jpg') }}"
-            style="width: 1920px; height: auto; position: absolute; top: 0; left: 0;">
+        <img src="{{ url_for('static', filename='about.jpg') }}" style="width: 100%; height: auto">
     </div>
 
 
@@ -44,23 +60,11 @@
             <div class="row gx-4 gx-lg-5">
                 <div class="col-lg-6" , style=" position: absolute; left: 50;top: 20px">
 
-                    <h1 class="mt-5" style="font-weight: bold; text-decoration: underline;">一間以設計為中心的軟體開發和託管服務公司</h1>
+                    <h1 class="mt-5" style="font-weight: bold; text-decoration: underline; color: white;">
+                        一間以設計為中心的軟體開發和託管服務公司</h1>
                     <br> </br>
 
-                    <p> 成立於2023年，雲端互動在台北設有營運據點，服務全球交通產業的客戶。</p>
-
-                    <p> 願景</p>
-                    <p> 以富有靈感的互動設計，將創意付諸實現，探索無限可能。</p>
-                    <p> 使命</p>
-                    <p> 專注於使用者體驗設計，結合創新的科技應用，打造更美好的生活體驗。</p>
-                    <p> 價值</p>
-                    <p> 雲端互動的起源來自於我們的信念:每個企業都將轉型成為某種科技型態的企業，以持續在新型態的數位經濟中發展。憑藉對卓越和創新的追求，我們以「使用者體驗設計」為基石，傳遞有溫度的服務以及客製化的數位解決方案。
-                    </p>
-
-                    <p> 我們的領導團隊</p>
-
-
-
+                    <p style="color: white;"> 成立於2023年，三個人在台北設有營運據點，服務全球交通產業的客戶。</p>
 
 
 
@@ -69,6 +73,16 @@
             </div>
         </div>
     </section>
+
+    <div>
+        <img src="{{ url_for('static', filename='goal.jpg') }}" style="width: 100%; height: auto;">
+    </div>
+
+    <div>
+        <img src="{{ url_for('static', filename='info.png') }}" style="width: 100%; height: auto;">
+    </div>
+
+
     <!-- Bootstrap core JS-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Core theme JS-->

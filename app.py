@@ -1,12 +1,48 @@
-from flask import Flask,request, render_template
+from flask import Flask, request, render_template, Response
 import folium
+from ultralytics import YOLO
+import cv2
 
 app = Flask(__name__)
 
 @app.route('/')
-
 def base():
     return render_template('index.html')
+            
+def gen_result_frames(camera_id):
+    model = YOLO("./yolov8n.pt")
+    # model = YOLO("./yolov8m.pt")
+    video_path = f"https://cctv.bote.gov.taipei:8501/mjpeg/{camera_id}" 
+    cap = cv2.VideoCapture(video_path)
+    # Loop through the video frames
+    while cap.isOpened():
+        # Read a frame from the video
+        success, frame = cap.read()
+        if success:
+            # Run YOLOv8 inference on the frame
+            # results = model.track(frame)
+            results = model.predict(frame)
+            result = results[0].plot()
+            ret, buffer = cv2.imencode('.jpg', result)
+            result = buffer.tobytes()
+            yield (b'--result\r\n'
+                   b'Content-Type: image/jpeg\r\n\r\n' + result + b'\r\n')
+
+@app.route('/video_feed/<camera_id>')
+def video_feed(camera_id):
+    #   return Response(gen_frames(), mimetype='multipart/x-mixed-replace; boundary=result')
+    return Response(gen_result_frames(camera_id),
+                    mimetype='multipart/x-mixed-replace; boundary=result')
+
+@app.route('/detect/<camera_id>')
+def detect(camera_id):
+    if (int(camera_id)>400):
+        return 'Wrong Camera ID !!'
+    return render_template('cameratest.html', camera_id=camera_id)
+
+@app.route('/CCTVmap')
+def CCTVmap():
+    return render_template('臺北市CCTV設施地圖.html')
 
 
 @app.route('/service')
@@ -26,6 +62,12 @@ def contact_page():
 def home_page():
 
     return render_template('index.html')
+
+@app.route('/map')
+
+def map_page():
+
+    return render_template('map.html')
 
 
 
