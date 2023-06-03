@@ -1,5 +1,4 @@
 Flask
+gunicorn
 folium
 geopandas
-ultralytics
-gunicorn 
