@@ -24,11 +24,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
     <meta name="author" content="" />
-    <title>臺北市道路安全交通平台</title>
+    <title>三個人科技股份有限公司</title>
     <!-- Favicon-->
-    <link rel="icon" type="image/x-icon" href="{{url_for('static', filename ='dist/assets/favicon.icon')}}" />
+    <link rel="icon" type="image/x-icon" href="{{url_for('static', filename ='dist/assets/icon.png')}}" />
     <!-- Core theme CSS (includes Bootstrap)-->
     <link href="{{url_for('static', filename ='dist/css/styles.css')}}" rel="stylesheet" />
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <script src="https://unpkg.com/aos@next/dist/aos.js"> </script>
 </head>
 
 <body>
@@ -40,54 +42,96 @@
                 aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span
                     class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
-                <ul class="navbar-nav ml-auto">
+                <ul class="dropdown navbar-nav ml-auto">
                     <li class="nav-item active"><a class="nav-link" href="home">首頁</a></li>
                     <li class="nav-item"><a class="nav-link" href="about">關於我們</a></li>
-                    <li class="nav-item"><a class="nav-link" href="service">業務實績</a></li>
+                    <div class="dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                            data-bs-toggle="dropdown">
+                            服務
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                            <li class="dropdown-item"><a class="nav-link" style="color:black"
+                                    href="CCTVmap">CCTV即時影像資料</a></li>
+                            <li class="dropdown-item disabled"><a class="nav-link"
+                                    style="color:rgba(0, 0, 0, 0.498); font-weight:bold;" href="#">臺北市A1及A2事故</a></li>
+                            <ul>
+                                <li class="dropdown-item disabled"><a class="nav-link" style="color:black"
+                                        href="#">交通事故</a></li>
+                                <ul>
+                                    <li class="dropdown-item nav-item"><a class="nav-link" style="color:black"
+                                            href="/accident/total/109">109年</a></li>
+                                    <li class="dropdown-item nav-item"><a class="nav-link" style="color:black"
+                                            href="/accident/total/110">110年</a></li>
+                                    <li class="dropdown-item nav-item"><a class="nav-link" style="color:black"
+                                            href="/accident/total/111">111年</a></li>
+                                </ul>
+                                <li class="dropdown-item disabled"><a class="nav-link" style="color:black"
+                                        href="#">無號誌交叉口事故</a></li>
+                                <ul>
+                                    <li class="dropdown-item nav-item"><a class="nav-link" style="color:black"
+                                            href="/accident/unsignalized/109">109年</a></li>
+                                    <li class="dropdown-item nav-item"><a class="nav-link" style="color:black"
+                                            href="/accident/unsignalized/110">110年</a></li>
+                                    <li class="dropdown-item nav-item"><a class="nav-link" style="color:black"
+                                            href="/accident/unsignalized/111">111年</a></li>
+                                </ul>
+                                <li class="dropdown-item disabled"><a class="nav-link" style="color:black"
+                                        href="#">行人事故</a></li>
+                                <ul>
+                                    <li class="dropdown-item nav-item"><a class="nav-link" style="color:black"
+                                            href="/accident/pendestrian/109">109年</a></li>
+                                    <li class="dropdown-item nav-item"><a class="nav-link" style="color:black"
+                                            href="/accident/pendestrian/110">110年</a></li>
+                                    <li class="dropdown-item nav-item"><a class="nav-link" style="color:black"
+                                            href="/accident/pendestrian/111">111年</a></li>
+                                </ul>
+                                <li class="dropdown-item disabled"><a class="nav-link" style="color:black"
+                                        href="#">30日內死亡行人事故</a></li>
+                                <ul>
+                                    <li class="dropdown-item nav-item"><a class="nav-link" style="color:black"
+                                            href="/accident/30days/109">109年</a></li>
+                                    <li class="dropdown-item nav-item"><a class="nav-link" style="color:black"
+                                            href="/accident/30days/110">110年</a></li>
+                                    <li class="dropdown-item nav-item"><a class="nav-link" style="color:black"
+                                            href="/accident/30days/111">111年</a></li>
+                                </ul>
+                            </ul>
+                        </ul>
+                    </div>
                     <li class="nav-item"><a class="nav-link" href="contact">聯繫方式</a></li>
                 </ul>
             </div>
-        </div>
     </nav>
     <!-- Page Content-->
 
 
-    <section style="background-color: white;">
-        <br> </br>
-        <br> </br>
-        <p style="color:black; font-size: 32px; background-color: white; font-weight: bold; left: 100px"> 聯絡我們</p>
-        <p style="color:rgb(23, 23, 23); font-size: 24px; background-color: white; font-weight: bold; left: 100px">
-            感謝您對三個人的關注，請從下方選擇您想聯繫的團隊。
-        </p>
-        <div>
 
-            <img src="{{ url_for('static', filename='contact.png') }}" style="width: 100%; height: auto;">
-        </div>
 
-    </section>
+    <div>
 
-    <section style="background-color: white;">
-        <p style="color:black; font-size: 32px; background-color: white; font-weight: bold; left: 100px"> 全球佈局，在地服務
-        </p>
-        <p style="color:rgb(23, 23, 23); font-size: 24px; background-color: white; font-weight: bold; left: 100px">
-            三個人總部成立於台北，可提供台灣地區在地化服務。
-        </p>
+        <img src="{{ url_for('static', filename='contact.png') }}" style="width: 100%; height: auto;">
+    </div>
 
-        <div>
 
-            <img src="{{ url_for('static', filename='location.png') }}" style="width: 100%; height: auto;">
-        </div>
 
-    </section>
+    <div data-aos="fade-up">
+
+        <img src="{{ url_for('static', filename='location.png') }}" style="width: 100%; height: auto;">
+    </div>
+
+
 
 
 
 
 
     <section style="background-color: white;">
-        <p style="color:black; font-size: 32px; background-color: white; font-weight: bold; left: 100px"> 聯繫全球辦公室</p>
+        <p
+            style="color:black; font-size: 35px; font-weight: bold; left: 100px; position: absolute;left:50px;padding-bottom: 50px;">
+            聯繫全球辦公室</p>
         <div style="display: flex; flex-wrap: wrap;">
-            <div style="flex: 1; padding: 2%; left: 50%; ">
+            <div style="flex: 1; padding: 60px; left: 50%; ">
                 <iframe
                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3615.4816619900957!2d121.53344598241469!3d25.017723120655283!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442aa2740f7c689%3A0x7bd6578f18d9826d!2z5ZyL56uL6Ie654Gj5aSn5a245Zyf5pyo5bel56iL5a2457O757O76aSo!5e0!3m2!1szh-TW!2stw!4v1685623502278!5m2!1szh-TW!2stw"
                     width="80%" height="80%" style="border:0;" allowfullscreen="" loading="lazy"
@@ -104,6 +148,40 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Core theme JS-->
     <script src="{{url_for('static', filename ='dist/js/scripts.js')}}"></script>
+    <script>
+        AOS.init();
+    </script>
 </body>
 
 </html>
+
+
+<style>
+    .footer {
+        text-align: center;
+        font-size: 9px;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        background-color: #f8f8f8;
+        padding: 4px 0;
+        z-index: 9999;
+    }
+
+    .map-container {
+        position: relative;
+        min-height: 100vh;
+        padding-bottom: 20px;
+        /* 留出 footer 的高度 */
+    }
+</style>
+<div class="map-container">
+    <div id="map" style="width: 100%; height: 100%;"></div>
+    <div class="footer">
+        <div class="footer-content">
+            &copy; 2023 國立臺灣大學「智慧運輸系統平台設計」課程期末報告-組別【三個人】(YEN-CHIN LEI, YI-HSUAN TSENG, YI-HSUAN CHEN).All rights
+            reserved.
+        </div>
+    </div>
+</div>
