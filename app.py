@@ -14,6 +14,13 @@ def gen_result_frames(camera_id):
     # model = YOLO("./yolov8m.pt")
     video_path = f"https://cctv.bote.gov.taipei:8501/mjpeg/{camera_id}" 
     cap = cv2.VideoCapture(video_path)
+
+    with open('static/data/input.json', 'w') as f:
+        clear = {
+            'log_string':" "
+        }
+        json.dump(clear, f)
+    f.close
     # Loop through the video frames
     while cap.isOpened():
         # Read a frame from the video
@@ -22,7 +29,17 @@ def gen_result_frames(camera_id):
             # Run YOLOv8 inference on the frame
             # results = model.track(frame)
             results = model.predict(frame)
-            result = results[0].plot()
+            results = results[0]
+
+            log_string = results.verbose()
+            data = {            
+                'log_string':log_string[:-2]
+            } 
+            with open('static/data/input.json', 'w') as f:
+                json.dump(data, f)
+            f.close
+
+            result = results.plot()
             ret, buffer = cv2.imencode('.jpg', result)
             result = buffer.tobytes()
             yield (b'--result\r\n'
