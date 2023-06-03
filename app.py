@@ -21,7 +21,7 @@ def gen_result_frames(camera_id):
         if success:
             # Run YOLOv8 inference on the frame
             # results = model.track(frame)
-            results = model.predict(frame, device='cpu')
+            results = model.predict(frame)
             result = results[0].plot()
             ret, buffer = cv2.imencode('.jpg', result)
             result = buffer.tobytes()
